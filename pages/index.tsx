@@ -1,5 +1,5 @@
-import { styled } from '@mui/material';
-
+import { styled, Typography } from '@mui/material';
+import useTranslation from 'next-translate/useTranslation';
 const PREFIX = 'Home';
 
 const classes = {
@@ -22,10 +22,11 @@ const Root = styled('div')(() => ({
 }));
 
 const Home: React.FC = () => {
+  const { t } = useTranslation('home');
   return (
     <Root>
       <main className={classes.section__wrapper}>
-        <div>aosidj</div>
+        <Typography variant='h1'>{t('page-heading')}</Typography>
       </main>
     </Root>
   );
