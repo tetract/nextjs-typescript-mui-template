@@ -1,5 +1,7 @@
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const routes = require('nextjs-routing-module').default;
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const nextTranslate = require('next-translate');
 
 const redirectsBuilder = array => {
   return [
@@ -28,7 +30,7 @@ const rewritesBuilder = array => {
     })
   ];
 };
-module.exports = {
+module.exports = nextTranslate({
   i18n: {
     // adjust this per-project basis
     defaultLocale: 'lt',
@@ -44,4 +46,4 @@ module.exports = {
   async rewrites() {
     return rewritesBuilder(routes);
   }
-};
+});
