@@ -4,6 +4,7 @@ import { ThemeProvider } from '@mui/material/styles';
 import { AppProps } from 'next/app';
 import Head from 'next/head';
 import * as React from 'react';
+import { wrapper } from 'store/store';
 
 import createEmotionCache from '../src/createEmotionCache';
 import theme from '../src/theme';
@@ -15,7 +16,7 @@ interface MyAppProps extends AppProps {
   emotionCache?: EmotionCache;
 }
 
-export default function MyApp(props: MyAppProps): JSX.Element {
+export default wrapper.withRedux(function MyApp(props: MyAppProps): JSX.Element {
   const { Component, emotionCache = clientSideEmotionCache, pageProps } = props;
   return (
     <CacheProvider value={emotionCache}>
@@ -29,4 +30,4 @@ export default function MyApp(props: MyAppProps): JSX.Element {
       </ThemeProvider>
     </CacheProvider>
   );
-}
+});
