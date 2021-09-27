@@ -1,0 +1,4 @@
+**/node_modules
+**/custom_node_modules
+**/next-i18next.config.js
+**/typescript
